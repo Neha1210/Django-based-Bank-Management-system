@@ -1,0 +1,57 @@
+{% extends 'accounts/main.html' %}
+
+{% block body %}
+
+<br>
+  <div class="row">
+    <div style="margin-left:20px;" class="col-md ">
+        <div class="card card-body">
+            <div class="d-flex">
+                <div class="col-md">
+                <h5>All Accounts</h5>       
+                </div>
+        </div>
+        <div class="row">
+            <div class="col-md">
+                <div class="card card-body">
+            <table class="table ">
+                <tr>
+                    <th>Name</th>
+                    <th>Email</th>
+                    <th>Address</th>
+                    <th>Adhar No</th>
+                </tr>
+           {% for i in users reversed %}
+                <tr>
+                    <td>{{i.name}}</td>
+                    <td>{{i.email}}</td>
+                    <td>{{i.address}}</td>
+                    <td>{{i.Adhar_no}}</td>
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+    </div>
+    <div class="col-md-5">
+                <div class="card card-body">
+            <table class="table ">
+                <tr>
+                    <th>Name</th>
+                    <th>Account no</th>
+                    <th>Ac.type</th>
+                    <th>Branch</th>
+                </tr>
+           {% for i in banks reversed %}
+                <tr>
+                    <td>{{i.username}}</td>
+                    <td>{{i.acno}}</td>
+                    <td>{{i.actype}}</td>
+                    <td>{{i.branch}}</td>
+                </tr>
+            {% endfor %}
+            </table>
+        </div>
+    </div>
+  </div>          
+  </div>
+{% endblock body %}

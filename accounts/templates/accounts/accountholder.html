@@ -1,0 +1,82 @@
+{% extends 'accounts/main.html' %}
+
+{% block body %}
+
+<br>
+  <div class="row">
+    <div class="col-md">
+        <div class="card card-body">
+        <h5>CUSTOMERS:</h5>
+        <hr>
+        <a class="btn btn-outline-info btn-sm btn-block" href="{% url 'updateuser' banks.id%}"> Update user
+            </a>
+            <br>
+            <a class="btn btn-outline-info btn-sm btn-block" href="{% url 'updateaccount' banks.id%}"> Update account
+            </a>
+            <br>
+                <a class="btn btn-outline-info btn-sm btn-block" href="{% url 'transaction' banks.id %}"> transaction
+            </a>
+        </div>
+    </div>
+
+  <div class="col-md">
+      <div class="card card-body">
+          <h5>User Information</h5>
+        <hr>
+        <p> Name:  {{banks.username}}</p>
+        <p> Account no: BOI202223{{banks.acno}} </p>
+      </div>
+  </div>
+
+  <div class="col-md">
+      <div class="card card-body">
+          <h5>current Balance</h5>
+        <hr>
+          <h1 style="text-align:center ;padding:10px">{{banks.curr_balance}} Rs.</h1>
+      </div>
+  </div>
+</div>
+
+<br>
+<div class="row">
+    <div class="col">
+        <div class="card card-body">
+            <form method="get">
+                
+                <button class="btn btn-primary" type="submit">Search</button>
+            </form>
+        </div>
+    </div>
+
+</div>
+
+
+<br>
+  <div class="row">
+    <div class="col-md">
+        <hr>
+        <div class="card card-body">
+            <table class="table table-sm">
+                <tr>
+                    <th>reciver</th>
+                    <th>account no</th>
+                    <th>amount</th>
+                    <th>datetime</th>
+                </tr>
+            
+                {% for t in trans %}
+                
+                <tr>
+                    <td>{{t.recivername}}</td>
+                    <td>{{t.accountno}}</td>
+                    <td>{{t.amount}}</td>
+                    <td>{{t.datetime}}</td>
+                    
+                {% endfor %}
+                </tr>
+                
+            </table>
+        </div>
+    </div>
+  </div>
+{% endblock body %}

@@ -1,0 +1,53 @@
+{% extends 'accounts/main.html' %}
+{% load static %}
+{% block body %}
+
+<br>
+<div style="margin-left: 5px;">
+    <form action="" method="POST">
+    {% csrf_token %}
+
+    <div class="row mx-auto" >
+      <div  class="col-md-5 mx-auto">
+         <div class="card">
+            <div class="card-header">
+               <h3>Transfer Here</h3>
+            </div>
+            <div class="card-body">
+               <div class="row mb-3">
+            <label for="inputname" class="col-sm-2 col-form-label">Sender Name</label>
+              <div class="col-sm-10">
+                <input type="text" value="{{banks.username}}">
+              </div>
+          </div>
+          <div class="row mb-3">
+            <label for="inputname" class="col-sm-2 col-form-label">Sender Account no</label>
+              <div class="col-sm-10">
+               <input type="text" value="BOI202223{{banks.acno}}">    
+          </div>
+          <div class="row mb-3">
+            <label for="inputname" class="col-sm-2 col-form-label">reciever Name</label>
+              <div class="col-sm-10">
+               {{form.recivername}}   
+          </div>
+          <div class="row mb-3">
+            <label for="inputname" class="col-sm-2 col-form-label">reciever Account no</label>
+              <div class="col-sm-10">
+               BOI202223{{form.accountno}}    
+          </div>          
+          <div class="row mb-3">
+            <label for="inputname" class="col-sm-2 col-form-label">Amount</label>
+              <div class="col-sm-10">
+               {{form.amount}}
+          </div>
+    <input class="btn btn-primary" type="submit" name="Submit">
+
+</form>
+
+    </div>
+      </div>
+    </div>
+            </div>
+</div>
+
+{% endblock body %}

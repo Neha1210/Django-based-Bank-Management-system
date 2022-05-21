@@ -1,0 +1,52 @@
+
+{% extends 'accounts/main.html' %}
+{% load static %}
+{% block body %}
+
+<br>
+<div style="margin-left: 5px;">
+    <form action="" method="POST">
+    {% csrf_token %}
+
+    <div class="row">
+      <div  class="col-md-5 mx-auto">
+         <div class="card">
+            <div class="card-header">
+               <h3>Create Account</h3>
+            </div>
+            <div class="card-body">
+          <div class="row mb-3">
+            <label for="inputname" class="col-sm-2 col-form-label">Name</label>
+              <div class="col-sm-10">
+               {{form.username}}   
+          </div>
+          <div class="row mb-3">
+            <label for="inputname" class="col-sm-2 col-form-label">Balance</label>
+              <div class="col-sm-10">
+               {{form.curr_balance}}
+          </div>          
+          <div class="row mb-3">
+            <label for="inputname" class="col-sm-2 col-form-label">Account no</label>
+              <div class="col-sm-10">
+               BSI202223{{form.acno}}
+          </div>
+          <div class="row mb-3">
+            <label for="inputname" class="col-sm-2 col-form-label">account type</label>
+              <div class="col-sm-10">
+               {{form.actype}}
+          </div>
+          <div class="row mb-3">
+            <label for="inputname" class="col-sm-2 col-form-label">branch</label>
+              <div class="col-sm-10">
+               {{form.branch}}
+          </div>
+    <input class="btn btn-primary" type="submit" name="Submit">
+
+</form>
+    </div>
+      </div>
+    </div>
+            </div>
+</div>
+
+{% endblock body %}

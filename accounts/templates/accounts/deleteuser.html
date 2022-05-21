@@ -1,0 +1,7 @@
+<p>are u sure?</p>
+
+<form action="{% url 'deleteuser' users.id %}" method="POST">
+	{% csrf_token %}
+	<a href="{% url 'home' %}">Cancel</a>
+    <input type="submit" name="Submit">
+</form>

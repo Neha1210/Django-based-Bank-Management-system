@@ -1,0 +1,59 @@
+{% extends 'accounts/main.html' %}
+{% block body %}
+{% include 'accounts/status.html' %}
+<br>
+  <div class="row">
+    <div class="col-md-6">
+        <h5>USERS:</h5>
+        <hr>
+        <div class="card card-body">
+            <a class="btn btn-primary btn-sm btn-block" href="{% url 'createuser' %}"> Create User
+            </a>
+            <table class="table table-sm">
+                <tr>
+                    <th>view</th>
+                    <th>User</th>
+                    <th>Email</th>
+                    <th>DeleteUser</th>
+                </tr>
+                {% for user in users reversed%}     
+                <tr>
+                    <td><a class= "btn btn-sm btn-info" href="{% url 'accountholder' user.id%}">view</a></td>
+                    <td>{{user.name}}</td>
+                    <td>{{user.email}}</td>
+                    <td><a class= "btn btn-sm btn-danger" href="{% url 'deleteuser' user.id%}">Delete</a></td>
+                </tr>
+                {% endfor %}    
+            </table>
+        </div>
+    </div>
+
+    <div class="col-md-6">
+        <h5>Acconts:</h5>
+        <hr>
+        <div class="card card-body">
+            <a class="btn btn-primary btn-sm btn-block" href="{% url 'createaccount' %}"> Create User Account
+            </a>
+            <table class="table table-sm">
+                <tr>
+                    <th>User</th>
+                    <th>account no</th>
+                    <th>Balance</th>
+                    <th>branch</th>
+                    <th>delete</th>
+                </tr>
+                {% for bank in banks reversed%}     
+                <tr>
+                    
+                    <td>{{bank.username}}</td>
+                    <td>{{bank.acno}}</td>
+                    <td>{{bank.curr_balance}}</td>
+                    <td>{{bank.branch}}</td>
+                    <td><a class= "btn btn-sm btn-danger" href="{% url 'deleteaccount' bank.id%}">Delete</a></td>
+                </tr>
+                {% endfor %}    
+            </table>
+        </div>
+    </div>
+</div>
+{% endblock body %}

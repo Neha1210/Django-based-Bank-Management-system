@@ -1,0 +1,7 @@
+<p>are u sure?</p>
+
+<form action="{% url 'deleteaccount' banks.id %}" method="POST">
+	{% csrf_token %}
+	<a href="{% url 'home' %}">Cancel</a>
+    <input type="submit" name="Confirm">
+</form>
